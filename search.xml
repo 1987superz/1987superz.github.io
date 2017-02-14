@@ -3,9 +3,23 @@
   
     
     <entry>
-      <title><![CDATA[My New Post]]></title>
-      <url>%2F2017%2F02%2F08%2FMy-New-Post%2F</url>
-      <content type="text"></content>
+      <title><![CDATA[Angular 2章节目录]]></title>
+      <url>%2F2017%2F02%2F10%2Fng2-list%2F</url>
+      <content type="text"><![CDATA[ALL-IN-ONE 平台Angular 2就是前端开发领域的“宜家套装”，它经过精心的前期设计，涵盖了开发的各个层面，层与层之间都经过了精心调适， 是一个“开箱即用”的框架。你只管在前台秀肌肉吧！剩下的，让Angular在幕后帮你搞定！ 课程大纲（更新）第一节：Angular 2快速上手第二节：搭建开发环境 angular-CLI 、webpack 第三节：组件与指令 组件与指令、模板、数据绑定与事件绑定、组件间通讯、生命周期、动效、服务、管道 第四节：模块与共享模块第五节：路由与动态加载 基本用法、多层嵌套、动态加载模块、路由守卫 第六节：表单与数据校验第七节：与服务端通讯 Observable与RxJS 第八节：i18n（国际化）第九节：前端自动化测试第十节：高阶内容 WebWorker、ServiceWorker、SEO与Universal、ionic、PWA]]></content>
+    </entry>
+
+    
+    <entry>
+      <title><![CDATA[ubuntu 常用命令]]></title>
+      <url>%2F2017%2F02%2F09%2Fubuntu-command%2F</url>
+      <content type="text"><![CDATA[文件/文件夹管理 列出当前目录文件（不包括隐含文件） 1ls 列出当前目录文件（包括隐含文件） 1ls -a 列出当前目录下文件的详细信息 1ls -l 回当前目录的上一级目录 1cd .. 回上一次所在的目录 1cd - 或 cd 回当前用户的宿主目录 1cd ~ 目录名 创建一个目录 1mkdir 空目录名 删除一个空目录 1rmdir 文件名 文件名 删除一个文件或多个文件 1rm 非空目录名 删除一个非空目录下的一切 1rm -rf 路经/文件 /经/文件移动相对路经下的文件到绝对路经下 1mv 文件名 新名称 在当前目录下改名 1mv 路经 -name “字符串” 查找路经所在范围内满足字符串匹配的文件和目录 1find]]></content>
+    </entry>
+
+    
+    <entry>
+      <title><![CDATA[ionic2.0.1发布，漂亮的 HTML5 移动应用框架]]></title>
+      <url>%2F2017%2F02%2F08%2Fionic2-0-1%2F</url>
+      <content type="text"><![CDATA[Ionic 2.0.1 发布了，Ionic Framework 是个高级的 HTML5 移动端应用框架，是个很漂亮的使用 HTML5 开发混合移动应用前端框架。 更新内容Bug 修复-chip： 在中心对齐图标 -content:：在 read dimensions 时检查 this._scroll -datetime:：设置不带 formControlName 的 input-has-value 类 -input:：添加警报和输入占位符颜色的变量 -input：禁用时不允许聚焦 -platform：正确检测 iPad Pro -toggle/checkbox：允许值在禁用时进行程序化更新 特性-input: 添加 max，min，step 并传递给 native 详情查看：发行日志]]></content>
     </entry>
 
     
