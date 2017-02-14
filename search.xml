@@ -3,6 +3,13 @@
   
     
     <entry>
+      <title><![CDATA[Angular 2快速上手]]></title>
+      <url>%2F2017%2F02%2F10%2Fng2-chapter-1%2F</url>
+      <content type="text"><![CDATA[内容提要第一块内容：Angular-CLI安装配置Angular CLI主要特性 在开发中，搭建一个良好的前端架构非常重要，他对后续的开发，维护，团队协作，易读性具有重要意义 Angular CLI 可以快速搭建框架，创建module，service，class，directive等； 具有webpack的功能，代码分割（code splitting），按需加载； 代码打包压缩； 模块测试，端到端测试； 热部署，有改动立即重新编译，不用刷新浏览器；而且速度很快 有开发环境，测试环境，生产环境的配置，不用自己操心； sass，less的预编译Angular CLI都会自动识别后缀来编译； typescript的配置，Angular CLI在创建应用时都可以自己配置； 在创建好的工程也可以做一些个性化的配置，webpack的具体配置还不支持，未来可能会增加； Angular CLI创建的工程结构是最佳实践，生产可用； 安装 Angular CLI123npm install -g angular-cli // 需要翻墙你懂的！ng --versionng help 创建Aangular2工程1ng new project_name // project_name是你的项目名； 启动Aangular2工程123cd project_name ng serve // 运行ng serve --port 4201 --live-reload-port 49153 // 也可以指定运行 CLI操作命令123456789ng generate component my-new-component // 全写 快速生产组件ng g c my-new-component // 简写 g:generate | c:componentng g directive my-new-directive // d:Directiveng g pipe my-new-pipe // p:Pipeng g service my-new-service // s:Serviceng g interface my-new-interface // Interfaceng g enum my-new-enum // e:Enumng g module my-module // m:Module CLI测试123CLI 实现了 Karma 和 e2e 两种测试ng test // karmang e2e // e2e 第二块内容：Angualr中的3大核心概念 Component、Module、Route 第三块内容：Angualr核心架构思想 组件化、依赖注入DI、数据绑定 第四块内容：UI库 Angular-Material、Prime-NG、ng2-bootstrap、ionic2 第五块内容：NiceFish]]></content>
+    </entry>
+
+    
+    <entry>
       <title><![CDATA[Angular 2章节目录]]></title>
       <url>%2F2017%2F02%2F10%2Fng2-list%2F</url>
       <content type="text"><![CDATA[ALL-IN-ONE 平台Angular 2就是前端开发领域的“宜家套装”，它经过精心的前期设计，涵盖了开发的各个层面，层与层之间都经过了精心调适， 是一个“开箱即用”的框架。你只管在前台秀肌肉吧！剩下的，让Angular在幕后帮你搞定！ 课程大纲（更新）第一节：Angular 2快速上手第二节：搭建开发环境 angular-CLI 、webpack 第三节：组件与指令 组件与指令、模板、数据绑定与事件绑定、组件间通讯、生命周期、动效、服务、管道 第四节：模块与共享模块第五节：路由与动态加载 基本用法、多层嵌套、动态加载模块、路由守卫 第六节：表单与数据校验第七节：与服务端通讯 Observable与RxJS 第八节：i18n（国际化）第九节：前端自动化测试第十节：高阶内容 WebWorker、ServiceWorker、SEO与Universal、ionic、PWA]]></content>
