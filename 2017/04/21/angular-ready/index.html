@@ -129,7 +129,7 @@ v7.9.0">
 <meta property="og:image" content="http://yoursite.com/img/ng_ready_01.jpg">
 <meta property="og:image" content="http://yoursite.com/img/ng_ready_02.jpg">
 <meta property="og:image" content="http://yoursite.com/img/ng_ready_03.jpg">
-<meta property="og:updated_time" content="2017-04-20T18:07:59.247Z">
+<meta property="og:updated_time" content="2017-04-21T10:15:41.552Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="angular开发环境搭件（WebStorm，Angular-cli）">
 <meta name="twitter:description" content="自己尝试用WebStorm搭建Angular的工程，虽然在网上看了一些仁兄的帖子，很有帮助，但是感觉关键的、核心的问题没有说清楚（也可能是由于用Node不是很久，知识浅薄），所以搭建过程特别是在Windows上也是磕磕绊绊，总是有些问题。相信其他人也会遇到同样的问题，所以将问题梳理总结如下。
@@ -480,38 +480,20 @@ v7.9.0">
 </tbody>
 </table>
 <a id="more"></a>
-<h5 id="WebStorm安装"><a href="#WebStorm安装" class="headerlink" title="WebStorm安装"></a>WebStorm安装</h5><p>下载安装WebStorm2017版（<a href="https://download.jetbrains.8686c.com/webstorm/WebStorm-2017.1.1.exe" target="_blank" rel="external">Download | 下载</a>）<br>WebStorm安装很简单，破解如图，建议还是支持正版。<br> <img src="http://images2015.cnblogs.com/blog/257645/201704/257645-20170405144947285-1656111196.png" alt="`http://idea.iteblog.com/key.php` | center"></p>
+<h5 id="WebStorm安装"><a href="#WebStorm安装" class="headerlink" title="WebStorm安装"></a>WebStorm安装</h5><p>下载安装WebStorm2017版（<a href="https://download.jetbrains.8686c.com/webstorm/WebStorm-2017.1.1.exe" target="_blank" rel="external">Download | 下载</a>）<br>WebStorm安装很简单，破解如图，建议还是支持正版。</p>
+<p> <img src="http://images2015.cnblogs.com/blog/257645/201704/257645-20170405144947285-1656111196.png" alt="`http://idea.iteblog.com/key.php` | center"></p>
 <h5 id="NodeJs安装"><a href="#NodeJs安装" class="headerlink" title="NodeJs安装"></a>NodeJs安装</h5><p>下载安装NodeJs(<a href="https://nodejs.org/" target="_blank" rel="external">Download | 下载</a>)<br>这一步很简单，下载Windows版的Nodejs，进行按照提示安装即可，记得选择将nodejs增加到PATH一项，如果界面上没有，应该就是默认帮你搞定了，可以忽略我这句废话。通过命令，验证是否安装成功：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">node -v  //如果正常显示版本号，即安装成功。</div><div class="line">npm -v</div></pre></td></tr></table></figure></p>
-<h5 id="Nodejs配置"><a href="#Nodejs配置" class="headerlink" title="Nodejs配置"></a>Nodejs配置</h5><p>Nodejs安装完成之后，默认会将node.exe的路径，添加到系统的环境变量中，如果没有请手动添加。除此之外还要进行其他的配置。</p>
-<ol>
-<li><p>配置prefix和cache目录</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">示例目录地址为：C:\Program Files\nodejs</div><div class="line"><span class="built_in">cd</span> C:\Program Files\nodejs</div><div class="line">mkdir node_global\node_modules //创建目录</div><div class="line">mkdir node_cache</div><div class="line">npm config <span class="built_in">set</span> prefix <span class="string">"C:\Program Files\nodejs\node_global"</span></div><div class="line">npm config <span class="built_in">set</span> cache <span class="string">"C:\Program Files\nodejs\node_cache"</span></div></pre></td></tr></table></figure>
-</li>
-<li><p>配置环境变量<br>右击“计算机”—&gt;”属性”—&gt;”高级系统设置”—&gt;”环境变量”</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">在[系统变量]中,设置 NODE_PATH ，新建 NODE_PATH ,值为</div><div class="line">C:\Program Files\nodejs\node_global\node_modules</div><div class="line"></div><div class="line">在”用户变量”中,修改用户变量中的path，添加</div><div class="line">C:\Program Files\nodejs\node_global\</div></pre></td></tr></table></figure>
-</li>
-<li><p>配置sass_binary<br>手工下载node-sass (<a href="https://github.com/sass/node-sass/releases/download/v4.5.2/win32-x64-51_binding.node" target="_blank" rel="external">Download | 下载</a>)<br>angular cli 是要依赖node-sass的，默认情况下，不会像其它包一样直接下载，而是要下载后进行编译的。在Windows下，首先要通过git下载win32-x64-51_binding.node，但是不知道是被墙还是什么原因，下不下来，就会导致后面的编译出错，以及提示找不到python和Visual Studio的问题。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">将下载的binding.node放到指定目录，例如：</div><div class="line">C:\win32-x64-51_binding.node</div><div class="line"></div><div class="line">执行配置命令：</div><div class="line">npm config <span class="built_in">set</span> sass_binary_path <span class="string">"C:\win32-x64-51_binding.node"</span></div><div class="line">npm config <span class="built_in">set</span> sass_binary_site “https://npm.taobao.org/mirrors/node-sass/” //使用阿里的镜像</div><div class="line">h</div><div class="line">当然以上prefix， cache，sass_binary_site， sass_binary_path等，也可以通过修改下面文件进行配置：</div><div class="line">C:\&lt;username&gt;\.npmrc</div><div class="line"></div><div class="line">prefix=C:\Program Files\nodejs\node_global</div><div class="line">cache=C:\Program Files\nodejs\node_cache</div><div class="line">sass_binary_site=https://npm.taobao.org/mirrors/node-sass/</div><div class="line">sass_binary_path=C:\win32-x64-51_binding.node</div></pre></td></tr></table></figure>
-</li>
-<li><p>全局安装typescript | typings</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install -g typescript typings</div></pre></td></tr></table></figure>
-</li>
-<li><p>全局安装angularjs-cli<br>新版已经不用angular-cli进行安装，而是使用@angular/cli，<a href="https://angular.cn/docs/ts/latest/cli-quickstart.html" target="_blank" rel="external">参见官网</a></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install -g @angular/cli</div></pre></td></tr></table></figure>
-</li>
-</ol>
-<h5 id="创建工程"><a href="#创建工程" class="headerlink" title="创建工程"></a>创建工程</h5><ol>
-<li><p>打开WebStorm新建一个Angualr CLI 工程<br><img src="/img/ng_ready_01.jpg" alt="new project | center"></p>
-</li>
-<li><p>等待工程创建完成<br>以上工作完成，就是等待新建一个angular 2工程。这个过程有点慢，主要是IDE会根据package.json下载依赖的包到工程里面。</p>
-</li>
-<li><p>运行程序<br>选择package.json, 右键选择“Show npm Scripts”，或者用“Edit Configurations”，添加“npm”<br><img src="/img/ng_ready_02.jpg" alt="npm | center "></p>
-</li>
-<li><p>点击“start” 启动 Web Server<br><img src="/img/ng_ready_03.jpg" alt="start | center"></p>
-</li>
-<li><p>在浏览器輸入 <a href="http://localhost:4200" target="_blank" rel="external">http://localhost:4200</a> ，若出現 app works! ，表示Angular已经正常启动。</p>
-</li>
-</ol>
+<h5 id="Nodejs配置"><a href="#Nodejs配置" class="headerlink" title="Nodejs配置"></a>Nodejs配置</h5><p>Nodejs安装完成之后，默认会将node.exe的路径，添加到系统的环境变量中，如果没有请手动添加。除此之外还要进行其他的配置。<br>1.配置prefix和cache目录<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">示例目录地址为：C:\Program Files\nodejs</div><div class="line"><span class="built_in">cd</span> C:\Program Files\nodejs</div><div class="line">mkdir node_global\node_modules //创建目录</div><div class="line">mkdir node_cache</div><div class="line">npm config <span class="built_in">set</span> prefix <span class="string">"C:\Program Files\nodejs\node_global"</span></div><div class="line">npm config <span class="built_in">set</span> cache <span class="string">"C:\Program Files\nodejs\node_cache"</span></div></pre></td></tr></table></figure></p>
+<p>2.配置环境变量<br>右击“计算机”—&gt;”属性”—&gt;”高级系统设置”—&gt;”环境变量”<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">在[系统变量]中,设置 NODE_PATH ，新建 NODE_PATH ,值为</div><div class="line">C:\Program Files\nodejs\node_global\node_modules</div><div class="line"></div><div class="line">在”用户变量”中,修改用户变量中的path，添加</div><div class="line">C:\Program Files\nodejs\node_global\</div></pre></td></tr></table></figure></p>
+<p>3.配置sass_binary<br>手工下载node-sass (<a href="https://github.com/sass/node-sass/releases/download/v4.5.2/win32-x64-51_binding.node" target="_blank" rel="external">Download | 下载</a>)<br> angular cli 是要依赖node-sass的，默认情况下，不会像其它包一样直接下载，而是要下载后进行编译的。在Windows下，首先要通过git下载win32-x64-51_binding.node，但是不知道是被墙还是什么原因，下不下来，就会导致后面的编译出错，以及提示找不到python和Visual Studio的问题。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">将下载的binding.node放到指定目录，例如：</div><div class="line">C:\win32-x64-51_binding.node</div><div class="line"></div><div class="line">执行配置命令：</div><div class="line">npm config <span class="built_in">set</span> sass_binary_path <span class="string">"C:\win32-x64-51_binding.node"</span></div><div class="line">npm config <span class="built_in">set</span> sass_binary_site “https://npm.taobao.org/mirrors/node-sass/” //使用阿里的镜像</div><div class="line">当然以上prefix， cache，sass_binary_site， sass_binary_path等，也可以通过修改下面文件进行配置：</div><div class="line">C:\&lt;username&gt;\.npmrc</div><div class="line"></div><div class="line">prefix=C:\Program Files\nodejs\node_global</div><div class="line">cache=C:\Program Files\nodejs\node_cache</div><div class="line">sass_binary_site=https://npm.taobao.org/mirrors/node-sass/</div><div class="line">sass_binary_path=C:\win32-x64-51_binding.node</div></pre></td></tr></table></figure>
+<p>4.全局安装typescript | typings<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install -g typescript typings</div></pre></td></tr></table></figure></p>
+<p>5.全局安装angularjs-cli<br>新版已经不用angular-cli进行安装，而是使用@angular/cli，<a href="https://angular.cn/docs/ts/latest/cli-quickstart.html" target="_blank" rel="external">参见官网</a><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install -g @angular/cli</div></pre></td></tr></table></figure></p>
+<h5 id="创建工程"><a href="#创建工程" class="headerlink" title="创建工程"></a>创建工程</h5><p>1.打开WebStorm新建一个Angualr CLI 工程<br><img src="/img/ng_ready_01.jpg" alt="new project | center"></p>
+<p>2.等待工程创建完成<br>以上工作完成，就是等待新建一个angular 2工程。这个过程有点慢，主要是IDE会根据package.json下载依赖的包到工程里面。</p>
+<p>3.运行程序<br>选择package.json, 右键选择“Show npm Scripts”，或者用“Edit Configurations”，添加“npm”<br><img src="/img/ng_ready_02.jpg" alt="npm | center "></p>
+<p>4.点击“start” 启动 Web Server<br><img src="/img/ng_ready_03.jpg" alt="start | center"></p>
+<p>5.在浏览器輸入 <a href="http://localhost:4200" target="_blank" rel="external">http://localhost:4200</a> ，若出現 app works! ，表示Angular已经正常启动。</p>
 
       
     </div>
