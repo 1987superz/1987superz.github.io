@@ -5,7 +5,7 @@
     <entry>
       <title><![CDATA[angualr引入第三方库（Jquery、Bootstrap）]]></title>
       <url>%2F2017%2F04%2F21%2Fangualr-import-lib%2F</url>
-      <content type="text"><![CDATA[场景说明：项目需要使用bootstrap，众所周知bootstrap没有时间日期控件的，需要使用第三方控件，项目使用angular-cli构建的。 解决流程（三步）1.下载第三方依赖库到本地12npm install jquery --savenpm install bootstrap --save 在package.json文件中可以查看新导入的库，’–save’将jquery库记录到package.json文件中。 2.将库引入到项目中在项目node_modules查找新导入库包，复制路径，引入到angular-cli.json文件里。123456789"styles": [ ........ "./node_modules/bootstrap/dist/css/bootstrap.css" ],"scripts": [......... "./node_modules/jquery/dist/jquery.js", "./node_modules/bootstrap/dist/js/bootstrap.js" ], 3.下载类型描述文件Angular区别于AngularJS，重构后使用TypeScript编写，第三方库需要引入@types类型描述文件，否则在IDE中会显示语法错误。12npm install @types/jquery --save-devnpm install @types/bootstrap --save-dev O(∩_∩)O现在可以愉快的使用Jquery了！]]></content>
+      <content type="text"><![CDATA[场景说明：项目需要使用bootstrap，众所周知bootstrap没有时间日期控件的，需要使用第三方控件，项目使用angular-cli构建的。 解决流程（三步）1.下载第三方依赖库到本地12npm install jquery --savenpm install bootstrap --save 在package.json文件中可以查看新导入的库，’–save’将jquery库记录到package.json文件中。 2.将库引入到项目中在项目node_modules查找新导入库包，复制路径，引入到angular-cli.json文件里。123456789"styles": [ ........ "../node_modules/bootstrap/dist/css/bootstrap.css" ],"scripts": [......... "../node_modules/jquery/dist/jquery.js", "../node_modules/bootstrap/dist/js/bootstrap.js" ], 3.下载类型描述文件Angular区别于AngularJS，重构后使用TypeScript编写，第三方库需要引入@types类型描述文件，否则在IDE中会显示语法错误。12npm install @types/jquery --save-devnpm install @types/bootstrap --save-dev O(∩_∩)O现在可以愉快的使用Jquery了！（Win10主机 最好“以管理员身份运行”系统！避免权限不足等问题！）]]></content>
     </entry>
 
     
