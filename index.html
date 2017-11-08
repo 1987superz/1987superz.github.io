@@ -280,6 +280,162 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/05/21/arithmetic-redpackets/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="Superz">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="/uploads/me.jpg">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="koar.cn">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="koar.cn" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/05/21/arithmetic-redpackets/" itemprop="url">
+                  PHP用抛物线的模型实现微信红包生成算法
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-05-21T00:14:43+08:00">
+                2017-05-21
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/note/" itemprop="url" rel="index">
+                    <span itemprop="name">note</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2017/05/21/arithmetic-redpackets/" class="leancloud_visitors" data-flag-title="PHP用抛物线的模型实现微信红包生成算法">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h4 id="红包生成算法"><a href="#红包生成算法" class="headerlink" title="红包生成算法"></a>红包生成算法</h4><blockquote>
+<p>红包的向平均数集中的分布正像数学上的抛物线。抛物线y=ax2，|a|越大则抛物线的开口就越小，|a|越小则抛物线的开口就越大,a&gt;0时开口向上<br><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&lt;?php</span></div><div class="line"></div><div class="line"><span class="comment">/*</span></div><div class="line"> *<span class="doctag">Note:</span>红包生成随机算法</div><div class="line"> */ </div><div class="line"></div><div class="line">header(<span class="string">"Content-type:text/html;charset=utf-8"</span>);</div><div class="line">date_default_timezone_set(<span class="string">'PRC'</span>);</div><div class="line"></div><div class="line"><span class="comment">#红包生成的算法程序</span></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">reward</span></span></div><div class="line">&#123;</div><div class="line">     <span class="keyword">public</span> $rewardMoney;        <span class="comment">#红包金额、单位元</span></div><div class="line">     <span class="keyword">public</span> $rewardNum;                  <span class="comment">#红包数量</span></div><div class="line">     <span class="keyword">public</span> $scatter;            <span class="comment">#分散度值1-10000</span></div><div class="line">     <span class="keyword">public</span> $rewardArray;        <span class="comment">#红包结果集</span></div><div class="line">     </div><div class="line">     <span class="comment">#初始化红包类</span></div><div class="line">     <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">__construct</span><span class="params">()</span></span></div><div class="line">     &#123;</div><div class="line">            <span class="keyword">$this</span>-&gt;rewardArray=<span class="keyword">array</span>();</div><div class="line">     &#125;</div><div class="line">     </div><div class="line">     <span class="comment">#执行红包生成算法</span></div><div class="line">     <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">splitReward</span><span class="params">($rewardMoney,$rewardNum,$scatter=<span class="number">100</span>)</span></span></div><div class="line">     &#123;</div><div class="line">             <span class="comment">#传入红包金额和数量</span></div><div class="line">             <span class="keyword">$this</span>-&gt;rewardMoney=$rewardMoney;</div><div class="line">            <span class="keyword">$this</span>-&gt;rewardNum=$rewardNum;</div><div class="line">            <span class="keyword">$this</span>-&gt;scatter=$scatter;</div><div class="line">            <span class="keyword">$this</span>-&gt;realscatter=<span class="keyword">$this</span>-&gt;scatter/<span class="number">100</span>;</div><div class="line">            </div><div class="line">            <span class="comment">/*</span></div><div class="line">             *前言：今天我突然这样一想，比如要把1个红包分给N个人，实际上就是相当于要得到N个百分比数据</div><div class="line">             *     条件是这N个百分比之和=100/100。这N个百分比的平均值是1/N。</div><div class="line">             *     并且这N个百分比数据符合一种正态分布（多数值比较靠近平均值）</div><div class="line">             *观点：微信红包里很多0.01的红包，我觉得这是微信程序里的人为控制，目的是为了防止总红包数超过总额，先分了几个0.01的红包。</div><div class="line">             *     不然不管是以随机概率还是正态分布都很难会出现非常多的0.01元红包。</div><div class="line">             */</div><div class="line">            </div><div class="line">            <span class="comment">#我的思路：正如上面说的，比如：1个红包发给5个人，我要得出5个小数，它们的和是1，他们的平均值是1/5</span></div><div class="line">            <span class="comment">#计算出发出红包的平均概率值、精确到小数4位。即上面的1/N值。</span></div><div class="line">            $avgRand=round(<span class="number">1</span>/<span class="keyword">$this</span>-&gt;rewardNum,<span class="number">4</span>);</div><div class="line">             </div><div class="line">            <span class="comment">#红包的向平均数集中的分布正像数学上的抛物线。抛物线y=ax2，|a|越大则抛物线的开口就越小，|a|越小则抛物线的开口就越大,a&gt;0时开口向上，我们这都是正数，就以a&gt;0来考虑吧。</span></div><div class="line">            <span class="comment">#程序里的$scatter值即为上方的a，此值除以100，当做100为基准，</span></div><div class="line">            <span class="comment">#通过开方(数学里的抛物线模型，开方可缩小变化值)得出一个小数字较多（小数字多即小红包多）的随机分布,据此生成随机数</span></div><div class="line">            $randArr=<span class="keyword">array</span>();</div><div class="line">            <span class="keyword">while</span>(count($randArr)&lt;$rewardNum)</div><div class="line">            &#123;</div><div class="line">                    $t=round(sqrt(mt_rand(<span class="number">1</span>,<span class="number">10000</span>)/<span class="keyword">$this</span>-&gt;realscatter));</div><div class="line">                    $randArr[]=$t;</div><div class="line">            &#125;</div><div class="line">            </div><div class="line">            <span class="comment">#计算当前生成的随机数的平均值，保留4位小数</span></div><div class="line">            $randAll=round(array_sum($randArr)/count($randArr),<span class="number">4</span>);</div><div class="line">            </div><div class="line">            <span class="comment">#为将生成的随机数的平均值变成我们要的1/N，计算一下生成的每个随机数都需要除以的值。我们可以在最后一个红包进行单独处理，所以此处可约等于处理。</span></div><div class="line">            $mixrand=round($randAll/$avgRand,<span class="number">4</span>);</div><div class="line">            </div><div class="line">            <span class="comment">#对每一个随机数进行处理，并剩以总金额数来得出这个红包的金额。</span></div><div class="line">            $rewardArr=<span class="keyword">array</span>();</div><div class="line">            <span class="keyword">foreach</span>($randArr <span class="keyword">as</span> $key=&gt;$randVal)</div><div class="line">            &#123;</div><div class="line">                    $randVal=round($randVal/$mixrand,<span class="number">4</span>);</div><div class="line">                    $rewardArr[]=round(<span class="keyword">$this</span>-&gt;rewardMoney*$randVal,<span class="number">2</span>);</div><div class="line">            &#125;</div><div class="line">            </div><div class="line">            <span class="comment">#对比红包总数的差异、修正最后一个大红包</span></div><div class="line">            sort($rewardArr);</div><div class="line">            $rewardAll=array_sum($rewardArr);</div><div class="line">            $rewardArr[<span class="keyword">$this</span>-&gt;rewardNum<span class="number">-1</span>]=<span class="keyword">$this</span>-&gt;rewardMoney-($rewardAll-$rewardArr[<span class="keyword">$this</span>-&gt;rewardNum<span class="number">-1</span>]);</div><div class="line">            rsort($rewardArr);</div><div class="line"></div><div class="line">            <span class="comment">#对红包进行排序一下以方便在前台图示展示</span></div><div class="line">            <span class="keyword">foreach</span>($rewardArr <span class="keyword">as</span> $k=&gt;$value)</div><div class="line">            &#123;</div><div class="line">                    $t=$k%<span class="number">2</span>;</div><div class="line">                    <span class="keyword">if</span>($t) array_push(<span class="keyword">$this</span>-&gt;rewardArray,$value);</div><div class="line">                    <span class="keyword">else</span> array_unshift(<span class="keyword">$this</span>-&gt;rewardArray,$value);</div><div class="line">            &#125;</div><div class="line">            $rewardArr=<span class="keyword">NULL</span>;</div><div class="line">            <span class="keyword">return</span> <span class="keyword">$this</span>-&gt;rewardArray;</div><div class="line">     &#125;</div><div class="line">    </div><div class="line">&#125;</div><div class="line"></div><div class="line">$money=<span class="number">1000</span>;    <span class="comment">#总共要发的红包数;</span></div><div class="line">$people=<span class="number">50</span>;        <span class="comment">#总共要发的人数</span></div><div class="line">$scatter=<span class="number">100</span>;    <span class="comment">#分散度</span></div><div class="line">$reward=<span class="keyword">new</span> reward();</div><div class="line">$rewardArr=$reward-&gt;splitReward($money,$people,$scatter);</div><div class="line"><span class="keyword">echo</span> <span class="string">"发放红包个数：&#123;$people&#125;，红包总金额&#123;$money&#125;元。下方所有红包总额之和："</span>.array_sum($reward-&gt;rewardArray).<span class="string">'元。下方用图展示红包的分布'</span>;</div><div class="line"><span class="keyword">echo</span> <span class="string">'&lt;hr&gt;'</span>;</div><div class="line"><span class="keyword">echo</span> <span class="string">"&lt;table style='font-size:12px;width:600px;border:1px solid #ccc;text-align:left;'&gt;&lt;tr&gt;&lt;td&gt;红包金额&lt;/td&gt;&lt;td&gt;图示&lt;/td&gt;&lt;/tr&gt;"</span>;</div><div class="line"><span class="keyword">foreach</span>($rewardArr <span class="keyword">as</span> $val)</div><div class="line">&#123;</div><div class="line">    <span class="comment">#线条长度计算</span></div><div class="line">    $width=intval($people*$val*<span class="number">300</span>/$money);</div><div class="line">    <span class="keyword">echo</span> <span class="string">"&lt;tr&gt;&lt;td&gt;&#123;$val&#125;&lt;/td&gt;&lt;td width='500px;text-align:left;'&gt;&lt;hr style='width:&#123;$width&#125;px;height:3px;border:none;border-top:3px double red;margin:0 auto 0 0px;'&gt;&lt;/td&gt;&lt;/tr&gt;"</span>;    </div><div class="line">&#125;</div><div class="line"><span class="keyword">echo</span> <span class="string">"&lt;/table&gt;"</span>;</div><div class="line"><span class="meta">?&gt;</span></div></pre></td></tr></table></figure></p>
+</blockquote>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
   <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/04/26/angualr-Injector/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1808,174 +1964,13 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/02/08/ionic2-0-1/">
-
-  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
-    <meta itemprop="name" content="Superz">
-    <meta itemprop="description" content="">
-    <meta itemprop="image" content="/uploads/me.jpg">
-  </span>
-
-  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-    <meta itemprop="name" content="koar.cn">
-    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
-      <img style="display:none;" itemprop="url image" alt="koar.cn" src="">
-    </span>
-  </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/02/08/ionic2-0-1/" itemprop="url">
-                  ionic2.0.1发布，漂亮的 HTML5 移动应用框架
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-02-08T14:19:35+08:00">
-                2017-02-08
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/ionic/" itemprop="url" rel="index">
-                    <span itemprop="name">ionic</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-             <span id="/2017/02/08/ionic2-0-1/" class="leancloud_visitors" data-flag-title="ionic2.0.1发布，漂亮的 HTML5 移动应用框架">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数 </span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>Ionic 2.0.1 发布了，Ionic Framework 是个高级的 HTML5 移动端应用框架，是个很漂亮的使用 HTML5 开发混合移动应用前端框架。</p>
-<h2 id="更新内容"><a href="#更新内容" class="headerlink" title="更新内容"></a>更新内容</h2><h3 id="Bug-修复"><a href="#Bug-修复" class="headerlink" title="Bug 修复"></a>Bug 修复</h3><p>-chip： 在中心对齐图标</p>
-<p>-content:：在 read dimensions 时检查 this._scroll</p>
-<p>-datetime:：设置不带 formControlName 的 input-has-value 类</p>
-<p>-input:：添加警报和输入占位符颜色的变量</p>
-<p>-input：禁用时不允许聚焦</p>
-<p>-platform：正确检测 iPad Pro</p>
-<p>-toggle/checkbox：允许值在禁用时进行程序化更新</p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/02/08/ionic2-0-1/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
+  <nav class="pagination">
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
+  </nav>
+
 
           
           </div>
@@ -2016,7 +2011,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">10</span>
+                <span class="site-state-item-count">11</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -2034,7 +2029,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">8</span>
+                <span class="site-state-item-count">9</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
